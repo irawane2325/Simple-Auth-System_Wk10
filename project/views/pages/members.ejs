@@ -2,14 +2,16 @@
 <html lang="en">
 <body>
 <h1>awww yes members only</h1>
-<a href="/">back 2 home</a>
+
 <br>
-<input type="button" name="LogOut" value="Log Out" onclick="ask()">
+<a href="/"><input type="button" name="LogOut" value="Log Out" onclick="deleteCookie()"></a>
 </body>
 
-<script>
-    function ask(){
-        alert('Are you sure you want to log out?')
+<script> 
+    function deleteCookie(){
+        
+       document.cookie ="SID=; expires=Thu, 01 Jan 1970 00:00:00 GMT;" ;
+       alert(document.cookie)
     }
 </script>
 </html>
