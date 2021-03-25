@@ -42,15 +42,19 @@ app.post('/create', function(req, res){
             console.log(fake_db)
         
                 // create cookie that holds the UUID (the Session ID)
-                res.cookie('SID', ids, {
+              let x =   res.cookie('SID', ids, {
                     expires: new Date(Date.now() + 900000),
-                    httpOnly: true
+                    httpOnly: false
                     })
+                    console.log(x)
+                    console.log(ids)
                     res.render('pages/members')
                     } else {
                     res.redirect('/error')
                     }
                 })
+
+              
                     
     // this is the protected route
     app.get('/supercoolmembersonlypage', function(req, res){
@@ -73,6 +77,9 @@ if (session) {
     app.all('*', function(req, res){
     res.render('pages/error')
     })
+
+
+
 
     app.listen(1612)
     console.log('Server is running on 1612')
