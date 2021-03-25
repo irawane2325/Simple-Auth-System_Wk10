@@ -3,15 +3,16 @@
 <body>
 <h1>awww yes members only</h1>
 
+<a href="/">Go back Home</a>
 <br>
 <a href="/"><input type="button" name="LogOut" value="Log Out" onclick="deleteCookie()"></a>
 </body>
 
 <script> 
     function deleteCookie(){
-        
-       document.cookie ="SID=; expires=Thu, 01 Jan 1970 00:00:00 GMT;" ;
-       alert(document.cookie)
-    }
+       document.cookie="SID=; max-age=0"
+
+       }
+    
 </script>
 </html>
