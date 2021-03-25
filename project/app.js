@@ -39,15 +39,16 @@ app.post('/create', function(req, res){
                     timeOfLogin: Date.now()
                   }
             fake_db.sessions = ids
+
             console.log(fake_db)
         
                 // create cookie that holds the UUID (the Session ID)
-              let x =   res.cookie('SID', ids, {
+              let x =   res.cookie('SID', ids.id, {
                     expires: new Date(Date.now() + 900000),
                     httpOnly: false
                     })
-                    console.log(x)
-                    console.log(ids)
+                   
+                  
                     res.render('pages/members')
                     } else {
                     res.redirect('/error')
@@ -58,9 +59,9 @@ app.post('/create', function(req, res){
                     
     // this is the protected route
     app.get('/supercoolmembersonlypage', function(req, res){
-    let id = req.cookies.SID
-    let session = fake_db.sessions[id]
-
+    let session= req.cookies.SID
+    console.log("Session is :" + req.cookies.SID)
+    
     // to error.ejs
 if (session) {
     res.render('pages/members')
